@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<ul class="list-group">
+  <li class="list-group-item"
+    *ngFor="let user of users$ | async"
+  >
+    {{ user.name }}
+  </li>
+</ul>
