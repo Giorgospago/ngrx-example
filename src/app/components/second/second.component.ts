@@ -15,6 +15,6 @@ export class SecondComponent implements OnInit {
   }
 
   updateGeorge() {
-    this.store.dispatch(new UpdateName({id: "1", name: "PAOKARA"}));
+    this.store.dispatch(new UpdateName({id: "1", name: "ngrxexampleARA"}));
   }
 }

@@ -1,26 +1,24 @@
-import { State } from '@ngrx/store';
 import {User, UsersActions, UsersActionsUnion} from './users.actions';
 
-export const initialState = [];
+export const initialState: User[] = [];
 
-export function usersReducer(state = initialState, {type, payload}: UsersActionsUnion)
-: State<User[]> {
-  switch (type) {
+export function usersReducer(state: User[] = initialState, action: UsersActionsUnion): User[] {
+  switch (action.type) {
     case UsersActions.LoadSuccess:
-      return payload;
+      return action.payload;
 
     case UsersActions.Create:
-      return [...state, payload];
+      return [...state, action.payload];
 
     case UsersActions.UpdateName:
-      const user = state.find(u => u.id === payload.id);
+      const user = state.find(u => u.id === action.payload.id);
       if (user) {
-        user.name = payload.name;
+        user.name = action.payload.name;
       }
       return state;
 
     case UsersActions.Delete:
-      const userIndex = state.findIndex(u => u.id === payload.id);
+      const userIndex = state.findIndex(u => u.id === action.payload.id);
       if (userIndex >= 0) {
         state.splice(userIndex, 1);
       }

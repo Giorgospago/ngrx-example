@@ -35,7 +35,7 @@ export class UpdateName implements Action {
 
 export class Delete implements Action {
   readonly type = UsersActions.Delete;
-  constructor(public payload: string) {}
+  constructor(public payload: {id: string}) {}
 }
 
 export type UsersActionsUnion = Load
